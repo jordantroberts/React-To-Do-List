@@ -9,6 +9,27 @@ class App extends Component {
       list: []
     };
   }
+
+  addItem(){
+    // create item with unique id 
+    const newItem={
+      id: 1 + Math.random(), // so we get a new random id each time
+      value: this.state.newItem.slice() 
+    };
+
+    // copy of current list items 
+    const list = [...this.state.list];
+
+    // add new item to the list
+    list.push(newItem);
+
+    // update the state with the new list and reset newItem
+    this.setState({
+      list,
+      newItem:""
+    })
+  }
+
   render() {
     return (
       <div className="App">
