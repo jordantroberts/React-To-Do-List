@@ -24,7 +24,7 @@ class App extends Component {
       value: this.state.newItem.slice() 
     };
 
-    // copy of current list items 
+    // copy of current list of items 
     const list = [...this.state.list];
 
     // add new item to the list
@@ -36,6 +36,17 @@ class App extends Component {
       newItem:""
     })
   }
+
+  deleteItem(id){
+    // copy of current list of items
+    const list = [...this.state.list];
+    
+    // filter out the item that is being deleted 
+    const updatedList = list.filter(item => item.id !== id);
+
+    this.setState({list: updatedList})
+  }
+  
 
   render() {
     return (
