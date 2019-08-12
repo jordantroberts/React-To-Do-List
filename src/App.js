@@ -16,7 +16,7 @@ class App extends Component {
       [key]: value
     })
   }
-  
+
   addItem(){
     // create item with unique id 
     const newItem={
@@ -50,6 +50,18 @@ class App extends Component {
             onChange={e => this.updateInput("newItem", e.target.value)}
           />
           <button onClick={() => this.addItem()}>Add</button>
+          <br/>
+          <ul>
+            {this.state.list.map(item => {
+              return(
+                <li key={item.id}>
+                  {item.value}
+                  <button onClick={() => this.deleteItem(item.id)}>X
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </div>
     );
